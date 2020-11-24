@@ -17,6 +17,8 @@ for i in range(student):
   g=(midterm1*0.3)+(midterm2*0.3)+(final*0.4)
   if g>=90:
     average_grades.append([g])
-
-
-print(average_grades)
+  
+if average_grades==[]:
+    print('Sorry! There is no any "AA" grade :( ')
+else:
+    print(average_grades)
