@@ -6,6 +6,12 @@ for i in range(student):
   midterm2=int(input("Enter the grade of Student"+str(i+1)+" midterm 2 : "))
   final=int(input("Enter the grade of Student"+str(i+1)+" final : "))
 
+  while midterm1>100 or midterm2>100 or final>100:
+    print("Invalid Grade Try Again !")
+    midterm1=int(input("Enter the grade of Student"+str(i+1)+" midterm 1 : "))
+    midterm2=int(input("Enter the grade of Student"+str(i+1)+" midterm 2 : "))
+    final=int(input("Enter the grade of Student"+str(i+1)+" final : "))
+
   average_grades.append([((midterm1*0.3)+(midterm2*0.3)+(final*0.4))])
 
 
