@@ -1,10 +1,12 @@
 student=int(input("Enter the number of students : "))
-exam_grades=[]
-for student in exam_grades:
-  midterm1=int(input("Enter the grade of midterm 1 : "))
-  midterm2=int(input("Enter the grade of midterm 2 : "))
-  final=int(input("Enter the grade of final : "))
+average_grades=[]
 
-  exam_grades.append([midterm1,midterm2,final])
+for i in range(student):
+  midterm1=int(input("Enter the grade of Student"+str(i+1)+" midterm 1 : "))
+  midterm2=int(input("Enter the grade of Student"+str(i+1)+" midterm 2 : "))
+  final=int(input("Enter the grade of Student"+str(i+1)+" final : "))
 
-print(exam_grades)
+  average_grades.append([((midterm1*0.3)+(midterm2*0.3)+(final*0.4))])
+
+
+print(average_grades)
