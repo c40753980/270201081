@@ -1,24 +1,10 @@
-name_list = []
-salary_list = []
 employees = {}
+for i in range(1,6):
+  name = input('enter name: ')
+  salary= int(input('enter salary: '))
+  employees[name] = salary
 
-
-for i in range(5):
-  name = str(input('Name: '))
-  salary = int(input('Salary: '))
-
-  name_list.append(name)
-  salary_list.append(salary)
-
-for x,y in zip(name_list,salary_list):
-  employees[x] = y
-
-sorted_salary = sorted(employees.values())
-
-for a in sorted_salary:
-
-  for b in employees.keys():
-
-    if employees[b] == a:
-      print(b[2],b[3],b[4])
-      print(employees[b[2],b[3],b[4]])
+sorted_employees = sorted(employees.items(), key=lambda x: x[1], reverse=False)
+for i in range(len(sorted_employees)):
+    if i>1:
+        print(sorted_employees[i])
