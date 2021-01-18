@@ -11,6 +11,6 @@ def selection_sort(n):
         n[i], n[min_] = n[min_], n[i]
 
 
-n = [3, 1, 41, 59, 26, 53, 59]
+n = [22, 8, 12, -4, 27, 30, 36, 50, 7, 68, 91, 56, 2, 85, 42, 98, 25]
 selection_sort(n)
 print(n)
