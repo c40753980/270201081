@@ -1,48 +1,68 @@
 class DNA:
-    
-    def __init__(self,dna):
+    def __init__(self, dna):
         self.dna = dna
-       
-    def count_nuclentides(self):
-        count = {"A":0,"G":0,"C":0,"T":0}
-        for x in self.dna:
-            count [x] += 1
-        return count
-    
+
+    def count_nucleotids(self):
+        dna_dictionary = dict()
+        counter_A = 0
+        counter_C = 0
+        counter_G = 0
+        counter_T = 0
+        for i in self.dna:
+            if i == "A":
+                counter_A += 1
+                dna_dictionary[i] = counter_A
+            elif i == "C":
+                counter_C += 1
+                dna_dictionary[i] = counter_C
+            elif i == "G":
+                counter_G += 1
+                dna_dictionary[i] = counter_G
+            else:
+                counter_T += 1
+                dna_dictionary[i] = counter_T
+
+        return dna_dictionary
+
     def calculate_complement(self):
-        new_dna = ""
-        reversed_dna = self.dna[::-1]
-        for x in reversed_dna:
-            if x=="A":
-                new_dna += "T"
-            elif x=="T":
-                new_dna += "C"
-            elif x=="C":
-                new_dna += "G"
-            elif x=="G":
-                new_dna += "C" 
-                
-        return DNA(new_dna)       
+        antidna = ""
+        for i in self.dna:
+            if i == "A":
+                antidna = antidna + "T"
+            elif i == "C":
+                antidna = antidna + "G"
+            elif i == "G":
+                antidna = antidna + "C"
+            else:
+                antidna = antidna + "A"
+        return antidna
 
-    def count_point_mutations(self,dna):
-        count = 0
-        
-        for i in range(len(self.dna)):
-            if self.dna[i] == dna.dna[i]:
-                count += 1
-        return count  
-    
-    def find_motif(self,dna1):
-         location = []
-         for i in range(len(self.dna) - len(dna.dna)+1):
-             if self.dna[i:i+dna1.dna] == dna1.dna :
-                 location.append(i)
-         return location     
+    def count_point_mutations(self, mutateddna):
+        if len(mutateddna) == len(self.dna):
+            counter = 0
+            mutation = 0
+            while counter < len(mutateddna):
+                if self.calculate_complement()[counter] != mutateddna[counter]:
+                    mutation = mutation + 1
+                counter = counter + 1
+            return mutation
+
+    def find_motif(self, subdna):
+        listof = list()
+        counter = len(self.dna)
+        temp = len(subdna)
+        index = 0
+        while counter != 0:
+            if self.dna[index:temp] == subdna:
+                listof.append(index)
+            index = index + 1
+            temp = temp + 1
+            counter = counter - 1
+        return listof
 
 
-
-
-       
-dna = DNA("ATCCGATAA")
-print(dna.calculate_complement().dna) 
-       
+mydna = DNA("GATATATGCATATACTT")
+print(mydna.count_nucleotids())
+print(mydna.calculate_complement())
+print(mydna.count_point_mutations("CGTATAACGTTATACTT"))
+print(mydna.find_motif("ATAT"))
