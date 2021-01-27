@@ -3,7 +3,7 @@ class DNA:
         self.dna = dna
 
     def count_nucleotids(self):
-        dna_dictionary = dict()
+        dna_dict = dict()
         counter_A = 0
         counter_C = 0
         counter_G = 0
@@ -11,16 +11,16 @@ class DNA:
         for i in self.dna:
             if i == "A":
                 counter_A += 1
-                dna_dictionary[i] = counter_A
+                dna_dict[i] = counter_A
             elif i == "C":
                 counter_C += 1
-                dna_dictionary[i] = counter_C
+                dna_dict[i] = counter_C
             elif i == "G":
                 counter_G += 1
-                dna_dictionary[i] = counter_G
+                dna_dict[i] = counter_G
             else:
                 counter_T += 1
-                dna_dictionary[i] = counter_T
+                dna_dict[i] = counter_T
 
         return dna_dictionary
 
